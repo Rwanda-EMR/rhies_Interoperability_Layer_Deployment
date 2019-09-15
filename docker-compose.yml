@@ -35,7 +35,7 @@ services:
     ports:
         - "9000:80"
     volumes:
-      - ./openHim_config/default.json:/usr/share/nginx/html/config/default.json
+      - ./disc/openHim_config/default.json:/usr/share/nginx/html/config/default.json
     restart: always
 
 
@@ -47,7 +47,7 @@ services:
     depends_on:
       - core
     volumes:
-      - ./labToOmrs_config/:/usr/src/app/savics/labToOmrsMediator/config/
+      - ./disc/labToOmrs_config/:/usr/src/app/savics/labToOmrsMediator/config/
     restart: always
 
 
@@ -60,22 +60,27 @@ services:
     depends_on:
       - core
     volumes:
-      - ./omrsToNida_config/:/usr/src/app/savics/omrsToNidaMediator/config/
+      - ./disc/omrsToNida_config/:/usr/src/app/savics/omrsToNidaMediator/config/
     restart: always
 
 
   openmrs-mysql:
     container_name: openmrs-mysql
     image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/savics:/var/lib/mysql
     ports:
       - "3307:3306"
+    restart: always
 
   openmrs-tomcat:
     container_name: openmrs-tomcat
     image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/savics/modules:/root/.OpenMRS/modules
     ports:
       - "8081:8080"
     depends_on:
       - openmrs-mysql
       - core
-
+    restart: always
