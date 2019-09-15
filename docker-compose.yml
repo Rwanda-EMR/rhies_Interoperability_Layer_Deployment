@@ -6,7 +6,10 @@ services:
     ports:
       - "27017:27017"
     image: mongo:3.4
+    restart: always
     
+
+
   core:
     container_name: openhim-core
     image: jembi/openhim-core
@@ -23,7 +26,9 @@ services:
       - "7788:7788"
     depends_on:
       - mongo
+    restart: always
   
+
   console:
     container_name: openhim-console
     image: jembi/openhim-console
@@ -31,6 +36,8 @@ services:
         - "9000:80"
     volumes:
       - ./openHim_config/default.json:/usr/share/nginx/html/config/default.json
+    restart: always
+
 
   labToOmrsMediator:
     container_name: savics-labtoomrs
@@ -55,5 +62,23 @@ services:
     volumes:
       - ./omrsToNida_config/:/usr/src/app/savics/omrsToNidaMediator/config/
     restart: always
+
+  openmrs-mysql:
+    container_name: openmrs-mysql
+    build: mysql
+    ports:
+     - "3307:3306"
+
+  openmrs-tomcat:
+    container_name: tomcat-openmrs
+    build: tomcat
+    ports:
+     - "8081:8080"
+    depends_on:
+     - openmrs-mysql
+     - core	
+
+  
+  
 
 
