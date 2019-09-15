@@ -63,15 +63,16 @@ services:
       - ./omrsToNida_config/:/usr/src/app/savics/omrsToNidaMediator/config/
     restart: always
 
+
   openmrs-mysql:
     container_name: openmrs-mysql
-    build: mysql
+    image: savicsorg/openmrs-mysql1911:v1.1
     ports:
       - "3307:3306"
 
   openmrs-tomcat:
-    container_name: tomcat-openmrs
-    build: tomcat
+    container_name: openmrs-tomcat
+    image: savicsorg/openmrs-tomcat1911:v1.2
     ports:
       - "8081:8080"
     depends_on:
