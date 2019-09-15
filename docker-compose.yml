@@ -67,7 +67,7 @@ services:
     container_name: openmrs-mysql
     build: mysql
     ports:
-     - "3307:3306"
+      - "3307:3306"
 
   openmrs-tomcat:
     container_name: tomcat-openmrs
