@@ -35,7 +35,7 @@ services:
     ports:
         - "9000:80"
     volumes:
-      - ./disc/openHim_config/default.json:/usr/share/nginx/html/config/default.json
+      - ./disc/openhim/config/default.json:/usr/share/nginx/html/config/default.json
     restart: always
 
 
@@ -47,7 +47,7 @@ services:
     depends_on:
       - core
     volumes:
-      - ./disc/labToOmrs_config/:/usr/src/app/savics/labToOmrsMediator/config/
+      - ./disc/labtoomrs/config/:/usr/src/app/savics/labToOmrsMediator/config/
     restart: always
 
 
@@ -60,7 +60,7 @@ services:
     depends_on:
       - core
     volumes:
-      - ./disc/omrsToNida_config/:/usr/src/app/savics/omrsToNidaMediator/config/
+      - ./disc/omrstonida/config/:/usr/src/app/savics/omrsToNidaMediator/config/
     restart: always
 
 
