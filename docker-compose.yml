@@ -48,6 +48,7 @@ services:
       - core
     volumes:
       - ./disc/labtoomrs/config/:/usr/src/app/savics/labToOmrsMediator/config/
+      - ./disc/labtoomrs/logs/:/usr/src/app/savics/logs/
     restart: always
 
 
