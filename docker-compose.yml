@@ -109,4 +109,96 @@ services:
       - core
     restart: always
     
+
+# 2. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019
+  openmrs-mysql-rukoma-sake-hc-442:
+    container_name: openmrs-mysql-rukoma-sake-hc-442
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/rukomasakehc442:/var/lib/mysql
+    ports:
+      - "3309:3306"
+    restart: always
+
+  openmrs-tomcat-rukoma-sake-hc-442:
+    container_name: openmrs-tomcat-rukoma-sake-hc-442
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/rukomasakehc442/modules:/root/.OpenMRS/modules
+    ports:
+      - "8083:8080"
+    depends_on:
+      - openmrs-mysql
+      - core
+    restart: always
+    
+
+# 3. OpenMRS intance of Kibungo HC FOSAID 435. Date added: 18/09/2019
+  openmrs-mysql-kibungo-hc-435:
+    container_name: openmrs-mysql-kibungo-hc-435
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/kibungohc435:/var/lib/mysql
+    ports:
+      - "3310:3306"
+    restart: always
+
+  openmrs-tomcat-kibungo-hc-435:
+    container_name: openmrs-tomcat-kibungo-hc-435
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/kibungohc435/modules:/root/.OpenMRS/modules
+    ports:
+      - "8084:8080"
+    depends_on:
+      - openmrs-mysql
+      - core
+    restart: always
+      
+
+# 4. OpenMRS intance of Jarama HC FOSAID 434. Date added: 18/09/2019
+  openmrs-mysql-jarama-hc-434:
+    container_name: openmrs-mysql-jarama-hc-434
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/jaramahc434:/var/lib/mysql
+    ports:
+      - "3311:3306"
+    restart: always
+
+  openmrs-tomcat-jarama-hc-434:
+    container_name: openmrs-tomcat-jarama-hc-434
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/jaramahc434/modules:/root/.OpenMRS/modules
+    ports:
+      - "8085:8080"
+    depends_on:
+      - openmrs-mysql
+      - core
+    restart: always
+
+
+# 5. OpenMRS intance of Rukumbeli HC FOSAID 443. Date added: 18/09/2019
+  openmrs-mysql-rukumbeli-hc-443:
+    container_name: openmrs-mysql-rukumbeli-hc-443
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/rukumbelihc443:/var/lib/mysql
+    ports:
+      - "3312:3306"
+    restart: always
+
+  openmrs-tomcat-rukumbeli-hc-443:
+    container_name: openmrs-tomcat-rukumbeli-hc-443
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/rukumbelihc443/modules:/root/.OpenMRS/modules
+    ports:
+      - "8086:8080"
+    depends_on:
+      - openmrs-mysql
+      - core
+    restart: always
+    
     
