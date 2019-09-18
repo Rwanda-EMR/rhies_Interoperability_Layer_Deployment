@@ -87,7 +87,7 @@ services:
     restart: always
 
 
-# OpenMRS intance of Remera HC. FOSAID 440. Date added: 18/09/2019
+# 1. OpenMRS intance of Remera HC. FOSAID 440. Date added: 18/09/2019
   openmrs-mysql:
     container_name: openmrs-mysql-remera-hc-440
     image: savicsorg/openmrs-mysql1911:v1.1
