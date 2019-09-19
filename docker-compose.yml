@@ -87,7 +87,7 @@ services:
     restart: always
 
 
-# 1. OpenMRS intance of Remera HC. FOSAID 440. Date added: 18/09/2019
+# 1. OpenMRS intance of Remera HC. FOSAID 440. Date added: 18/09/2019 HTTP port : 8082
   openmrs-mysql-remera-hc-440:
     container_name: openmrs-mysql-remera-hc-440
     image: savicsorg/openmrs-mysql1911:v1.1
@@ -110,7 +110,7 @@ services:
     restart: always
     
 
-# 2. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019
+# 2. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019, HTTP port : 8083
   openmrs-mysql-rukoma-sake-hc-442:
     container_name: openmrs-mysql-rukoma-sake-hc-442
     image: savicsorg/openmrs-mysql1911:v1.1
@@ -133,7 +133,7 @@ services:
     restart: always
     
 
-# 3. OpenMRS intance of Kibungo HC FOSAID 435. Date added: 18/09/2019
+# 3. OpenMRS intance of Kibungo HC FOSAID 435. Date added: 18/09/2019, HTTP port : 8084
   openmrs-mysql-kibungo-hc-435:
     container_name: openmrs-mysql-kibungo-hc-435
     image: savicsorg/openmrs-mysql1911:v1.1
@@ -156,7 +156,7 @@ services:
     restart: always
       
 
-# 4. OpenMRS intance of Jarama HC FOSAID 434. Date added: 18/09/2019
+# 4. OpenMRS intance of Jarama HC FOSAID 434. Date added: 18/09/2019, HTTP port : 8085
   openmrs-mysql-jarama-hc-434:
     container_name: openmrs-mysql-jarama-hc-434
     image: savicsorg/openmrs-mysql1911:v1.1
@@ -179,7 +179,7 @@ services:
     restart: always
 
 
-# 5. OpenMRS intance of Rukumbeli HC FOSAID 443. Date added: 18/09/2019
+# 5. OpenMRS intance of Rukumbeli HC FOSAID 443. Date added: 18/09/2019, HTTP port : 8086
   openmrs-mysql-rukumbeli-hc-443:
     container_name: openmrs-mysql-rukumbeli-hc-443
     image: savicsorg/openmrs-mysql1911:v1.1
