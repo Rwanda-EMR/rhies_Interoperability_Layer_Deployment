@@ -81,7 +81,7 @@ services:
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
       - ./disc/openmrs/sitename/modules:/root/.OpenMRS/modules
-      - ./disc/openmrs/sitename/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
+#      - ./disc/openmrs/sitename/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
     ports:
       - "8081:8080"
     depends_on:
