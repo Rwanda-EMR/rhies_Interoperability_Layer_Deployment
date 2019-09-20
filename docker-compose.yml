@@ -60,6 +60,8 @@ services:
       - "4001:4001"
     depends_on:
       - core
+    extra_hosts:
+      - "onlineauthentication.nida.gov.rw:192.168.100.150"
     volumes:
       - ./disc/omrstonida/config/:/usr/src/app/savics/omrsToNidaMediator/config/
     restart: always
