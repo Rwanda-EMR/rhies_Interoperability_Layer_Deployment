@@ -31,7 +31,7 @@ fileName="${backupPath}${now}_${sitename}.sql"
 mkdir -p  ${backupPath} 
 /usr/bin/mysqldump --opt -h ${host}  -P ${port} -u ${user}  -p${pwd}  ${db} > ${fileName}
 wait
-d ${backupPath} 
+cd ${backupPath} 
 gzip ${fileName}.sql
 wait 
 
@@ -47,6 +47,6 @@ fileName="${backupPath}${now}_${sitename}.sql"
 mkdir -p  ${backupPath} 
 /usr/bin/mysqldump --opt -h ${host}  -P ${port} -u ${user}  -p${pwd}  ${db} > ${fileName}
 wait
-d ${backupPath} 
+cd ${backupPath} 
 gzip ${fileName}.sql
 wait
