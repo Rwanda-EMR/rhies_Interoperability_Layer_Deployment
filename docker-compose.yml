@@ -227,6 +227,3 @@ services:
       - openmrs-mysql-rukumbeli-hc-443
       - core
     restart: always
-    
-volumes:
-  ./disc/mysql/remerahc440-data
