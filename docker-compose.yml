@@ -104,8 +104,6 @@ services:
     container_name: openmrs-tomcat-remera-hc-440
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-#      - ./disc/openmrs/remerahc440/modules:/root/.OpenMRS/modules
-#      - ./disc/openmrs/remerahc440/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
       - ./disc/openmrs/remerahc440-data:/root/.OpenMRS/
     ports:
       - "8082:8080"
@@ -129,8 +127,7 @@ services:
     container_name: openmrs-tomcat-rukoma-sake-hc-442
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/rukomasakehc442/modules:/root/.OpenMRS/modules
-#      - ./disc/openmrs/rukomasakehc442/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
+      - ./disc/openmrs/rukomasakehc442-data:/root/.OpenMRS/
     ports:
       - "8083:8080"
     depends_on:
@@ -144,7 +141,7 @@ services:
     container_name: openmrs-mysql-kibungo-hc-435
     image: savicsorg/openmrs-mysql1911:v1.1
     volumes:
-      - ./disc/mysql/kibungohc435:/var/lib/mysql
+      - ./disc/mysql/kibungohc435-data:/var/lib/mysql
     ports:
       - "3310:3306"
     restart: always
@@ -153,8 +150,7 @@ services:
     container_name: openmrs-tomcat-kibungo-hc-435
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/kibungohc435/modules:/root/.OpenMRS/modules
-#      - ./disc/openmrs/kibungohc435/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
+      - ./disc/openmrs/kibungohc435-data:/root/.OpenMRS/
     ports:
       - "8084:8080"
     depends_on:
@@ -168,7 +164,7 @@ services:
     container_name: openmrs-mysql-jarama-hc-434
     image: savicsorg/openmrs-mysql1911:v1.1
     volumes:
-      - ./disc/mysql/jaramahc434:/var/lib/mysql
+      - ./disc/mysql/jaramahc434-data:/var/lib/mysql
     ports:
       - "3311:3306"
     restart: always
@@ -177,8 +173,7 @@ services:
     container_name: openmrs-tomcat-jarama-hc-434
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/jaramahc434/modules:/root/.OpenMRS/modules
-#      - ./disc/openmrs/jaramahc434/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
+      - ./disc/openmrs/jaramahc434-data:/root/.OpenMRS/
     ports:
       - "8085:8080"
     depends_on:
@@ -192,7 +187,7 @@ services:
     container_name: openmrs-mysql-rukumbeli-hc-443
     image: savicsorg/openmrs-mysql1911:v1.1
     volumes:
-      - ./disc/mysql/rukumbelihc443:/var/lib/mysql
+      - ./disc/mysql/rukumbelihc443-data:/var/lib/mysql
     ports:
       - "3312:3306"
     restart: always
@@ -201,8 +196,7 @@ services:
     container_name: openmrs-tomcat-rukumbeli-hc-443
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/rukumbelihc443/modules:/root/.OpenMRS/modules
-#      - ./disc/openmrs/rukumbelihc443/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
+      - ./disc/openmrs/rukumbelihc443-data:/root/.OpenMRS/
     ports:
       - "8086:8080"
     depends_on:
