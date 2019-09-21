@@ -94,8 +94,15 @@ services:
   openmrs-mysql-remera-hc-440:
     container_name: openmrs-mysql-remera-hc-440
     image: savicsorg/openmrs-mysql1911:v1.1
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DB:-openmrs}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_USER: ${MYSQL_USER:-openmrs}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-Admin123}
+    healthcheck:
+      test: "exit 0"
     volumes:
-      - ./disc/mysql/remerahc440:/var/lib/mysql
+      - ./disc/mysql/remerahc440-data:/var/lib/mysql
     ports:
       - "3308:3306"
     restart: always
@@ -104,14 +111,26 @@ services:
     container_name: openmrs-tomcat-remera-hc-440
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/remerahc440/modules:/root/.OpenMRS/modules
+#      - ./disc/openmrs/remerahc440/modules:/root/.OpenMRS/modules
 #      - ./disc/openmrs/remerahc440/openmrs-runtime.properties:/root/.OpenMRS/openmrs-runtime.properties
+      - ./disc/openmrs/remerahc440-data:/root/.OpenMRS/
     ports:
       - "8082:8080"
     depends_on:
       - openmrs-tomcat-remera-hc-440
       - core
     restart: always
+    environment:
+      DB_DATABASE: ${MYSQL_DB:-openmrs}
+      DB_HOST: openmrs-mysql-remera-hc-440
+      DB_USERNAME: ${MYSQL_USER:-openmrs}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-Admin123}
+      DB_CREATE_TABLES: 'true'
+      DB_AUTO_UPDATE: 'true'
+      MODULE_WEB_ADMIN: 'true'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/openmrs/"]
+      timeout: 20s
     
 
 # 2. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019, HTTP port : 8083
@@ -209,4 +228,5 @@ services:
       - core
     restart: always
     
-    
+volumes:
+  ./disc/mysql/remerahc440-data
