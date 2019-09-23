@@ -52,7 +52,6 @@ services:
     restart: always
 
 
-
   omrsToNidaMediator:
     container_name: savics-omrstonida
     image: savicsorg/omrstonida:latest
@@ -64,6 +63,18 @@ services:
       - "onlineauthentication.nida.gov.rw:192.168.100.150"
     volumes:
       - ./disc/omrstonida/config/:/usr/src/app/savics/omrsToNidaMediator/config/
+    restart: always
+
+
+  omrsToDHIS2Mediator:
+    container_name: savics-omrstodhis2
+    image: savicsorg/omrstodhis2:latest
+    ports:
+      - "4002:4002"
+    depends_on:
+      - core
+    volumes:
+      - ./disc/omrstodhis2/config/:/usr/src/app/savics/omrsToDHIS2Mediator/config/
     restart: always
 
 
