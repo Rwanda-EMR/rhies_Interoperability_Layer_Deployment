@@ -101,27 +101,6 @@ services:
     restart: always
 
 
-# 1. OpenMRS intance of Remera HC. FOSAID 440. Date added: 18/09/2019 HTTP port : 8082
-  openmrs-mysql-remera-hc-440:
-    container_name: openmrs-mysql-remera-hc-440
-    image: savicsorg/openmrs-mysql1911:v1.1
-    volumes:
-      - ./disc/mysql/remerahc440-data:/var/lib/mysql
-    ports:
-      - "3308:3306"
-    restart: always
-
-  openmrs-tomcat-remera-hc-440:
-    container_name: openmrs-tomcat-remera-hc-440
-    image: savicsorg/openmrs-tomcat1911:v1.2
-    volumes:
-      - ./disc/openmrs/remerahc440-data:/root/.OpenMRS/
-    ports:
-      - "8082:8080"
-    depends_on:
-      - openmrs-mysql-remera-hc-440
-      - core
-    restart: always
     
 
 # 2. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019, HTTP port : 8083
@@ -281,14 +260,37 @@ services:
       - core
     restart: always
 
-# 9. OpenMRS intance of Bethsaida HC FOSAID 29. Date added: 21/09/2019, HTTP port : 8091
+# 9. OpenMRS intance of Remera HC. FOSAID 440. Date added: 21/09/2019, HTTP port : 8091
+#  openmrs-mysql-remera-hc-440:
+#    container_name: openmrs-mysql-remera-hc-440
+#    image: savicsorg/openmrs-mysql1911:v1.1
+#    volumes:
+#      - ./disc/mysql/remerahc440-data:/var/lib/mysql
+#    ports:
+#      - "3316:3306"
+#    restart: always
+#
+#  openmrs-tomcat-remera-hc-440:
+#    container_name: openmrs-tomcat-remera-hc-440
+#    image: savicsorg/openmrs-tomcat1911:v1.2
+#    volumes:
+#      - ./disc/openmrs/bethsaidahc29-data:/root/.OpenMRS/
+#    ports:
+#      - "8091:8080"
+#    depends_on:
+#      - openmrs-mysql-remera-hc-440
+#      - core
+#    restart: always
+    
+    
+# 1. OpenMRS intance of Bethsaida HC FOSAID 29. Date added: 18/09/2019 HTTP port : 8082
   openmrs-mysql-bethsaida-hc-29:
     container_name: openmrs-mysql-bethsaida-hc-29
     image: savicsorg/openmrs-mysql1911:v1.1
     volumes:
       - ./disc/mysql/bethsaidahc29-data:/var/lib/mysql
     ports:
-      - "3316:3306"
+      - "3308:3306"
     restart: always
 
   openmrs-tomcat-bethsaida-hc-29:
@@ -297,7 +299,7 @@ services:
     volumes:
       - ./disc/openmrs/bethsaidahc29-data:/root/.OpenMRS/
     ports:
-      - "8091:8080"
+      - "8082:8080"
     depends_on:
       - openmrs-mysql-bethsaida-hc-29
       - core
