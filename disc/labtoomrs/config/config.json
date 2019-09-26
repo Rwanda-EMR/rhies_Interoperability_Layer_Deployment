@@ -1,7 +1,7 @@
 {
     "api": {
         "username": "root@openhim.org",
-        "password": "0000",
+        "password": "r00t@Openh1m2020",
         "apiURL": "https://core:8080",
         "openMrsUrl": "http://172.17.0.1:4023/patient",
         "urlPattern": "/test/",
