@@ -7,7 +7,8 @@ services:
       - "27018:27017"
     image: mongo:3.4
     restart: always
-    options:
+    logging:
+      options:
         max-size: 5m
         
 
@@ -28,7 +29,8 @@ services:
     depends_on:
       - mongo
     restart: always
-    options:
+    logging:
+      options:
         max-size: 5m
 
   console:
@@ -39,7 +41,8 @@ services:
     volumes:
       - ./disc/openhim/config/default.json:/usr/share/nginx/html/config/default.json
     restart: always
-    options:
+    logging:
+      options:
         max-size: 5m
 
 
@@ -54,8 +57,9 @@ services:
       - ./disc/labtoomrs/config/:/usr/src/app/savics/labToOmrsMediator/config/
       - ./disc/labtoomrs/logs/:/usr/src/app/savics/logs/
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
   omrsToNidaMediator:
@@ -70,8 +74,10 @@ services:
     volumes:
       - ./disc/omrstonida/config/:/usr/src/app/savics/omrsToNidaMediator/config/
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
+
 
   omrsToDHIS2Mediator:
     container_name: savics-omrstodhis2
@@ -83,8 +89,9 @@ services:
     volumes:
       - ./disc/omrstodhis2/config/:/usr/src/app/savics/omrsToDHIS2Mediator/config/
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
   openmrs-mysql:
     container_name: openmrs-mysql
@@ -94,8 +101,9 @@ services:
     ports:
       - "3307:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 
@@ -111,8 +119,9 @@ services:
       - openmrs-mysql
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
     
 
@@ -125,8 +134,9 @@ services:
     ports:
       - "3309:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
   openmrs-tomcat-rukoma-sake-hc-442:
@@ -140,9 +150,9 @@ services:
       - openmrs-mysql-rukoma-sake-hc-442
       - core
     restart: always
-    options:
-      max-size: 5m
-
+    logging:
+      options:
+        max-size: 5m
 
 # 3. OpenMRS intance of Kibungo HC FOSAID 435. Date added: 18/09/2019, HTTP port : 8084
   openmrs-mysql-kibungo-hc-435:
@@ -153,8 +163,9 @@ services:
     ports:
       - "3310:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
   openmrs-tomcat-kibungo-hc-435:
@@ -168,8 +179,9 @@ services:
       - openmrs-mysql-kibungo-hc-435
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 
@@ -183,6 +195,10 @@ services:
     ports:
       - "3311:3306"
     restart: always
+    logging:
+      options:
+        max-size: 5m
+
 
   openmrs-tomcat-jarama-hc-434:
     container_name: openmrs-tomcat-jarama-hc-434
@@ -195,8 +211,9 @@ services:
       - openmrs-mysql-jarama-hc-434
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 
@@ -210,8 +227,9 @@ services:
     ports:
       - "3312:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 
@@ -226,8 +244,9 @@ services:
       - openmrs-mysql-rukumbeli-hc-443
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 
@@ -241,8 +260,9 @@ services:
     ports:
       - "3313:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 
@@ -257,8 +277,9 @@ services:
       - openmrs-mysql-nzangwa-hc-455
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 # 7. OpenMRS intance of Nyarugunga HC FOSAID 558. Date added: 21/09/2019, HTTP port : 8089
@@ -270,8 +291,9 @@ services:
     ports:
       - "3314:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
   openmrs-tomcat-nyarugunga-hc-558:
@@ -285,8 +307,9 @@ services:
       - openmrs-mysql-nyarugunga-hc-558
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 # 8. OpenMRS intance of Masaka HC FOSAID 36. Date added: 21/09/2019, HTTP port : 8090
@@ -298,8 +321,10 @@ services:
     ports:
       - "3315:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
+
 
 
   openmrs-tomcat-masaka-hc-36:
@@ -313,8 +338,9 @@ services:
       - openmrs-mysql-masaka-hc-36
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
 # 9. OpenMRS intance of Remera HC. FOSAID 440. Date added: 21/09/2019, HTTP port : 8091
@@ -352,8 +378,9 @@ services:
     ports:
       - "3308:3306"
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
 
 
   openmrs-tomcat-bethsaida-hc-29:
@@ -367,5 +394,6 @@ services:
       - openmrs-mysql-bethsaida-hc-29
       - core
     restart: always
-    options:
-      max-size: 5m
+    logging:
+      options:
+        max-size: 5m
