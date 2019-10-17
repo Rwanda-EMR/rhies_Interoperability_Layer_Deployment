@@ -124,34 +124,10 @@ services:
 
     
 
-# 2. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019, HTTP port : 8083
-  openmrs-mysql-rukoma-sake-hc-442:
-    container_name: openmrs-mysql-rukoma-sake-hc-442
-    image: savicsorg/openmrs-mysql1911:v1.1
-    volumes:
-      - ./disc/mysql/rukomasakehc442-data:/var/lib/mysql
-    ports:
-      - "3309:3306"
-    restart: always
-    logging:
-      options:
-        max-size: 5m
 
 
-  openmrs-tomcat-rukoma-sake-hc-442:
-    container_name: openmrs-tomcat-rukoma-sake-hc-442
-    image: savicsorg/openmrs-tomcat1911:v1.2
-    volumes:
-      - ./disc/openmrs/rukomasakehc442-data:/root/.OpenMRS/
-    ports:
-      - "8083:8080"
-    depends_on:
-      - openmrs-mysql-rukoma-sake-hc-442
-      - core
-    restart: always
-    logging:
-      options:
-        max-size: 5m
+
+        
 
 # 3. OpenMRS intance of Kibungo HC FOSAID 435. Date added: 18/09/2019, HTTP port : 8084
   openmrs-mysql-kibungo-hc-435:
@@ -281,12 +257,13 @@ services:
         max-size: 5m
 
 
-# 7. OpenMRS intance of Nyarugunga HC FOSAID 558. Date added: 21/09/2019, HTTP port : 8089
-  openmrs-mysql-nyarugunga-hc-558:
-    container_name: openmrs-mysql-nyarugunga-hc-558
+
+# 7. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019, HTTP port : 8089
+  openmrs-mysql-rukoma-sake-hc-442:
+    container_name: openmrs-mysql-rukoma-sake-hc-442
     image: savicsorg/openmrs-mysql1911:v1.1
     volumes:
-      - ./disc/mysql/nyarugungahc558-data:/var/lib/mysql
+      - ./disc/mysql/rukomasakehc442-data:/var/lib/mysql
     ports:
       - "3314:3306"
     restart: always
@@ -295,20 +272,25 @@ services:
         max-size: 5m
 
 
-  openmrs-tomcat-nyarugunga-hc-558:
-    container_name: openmrs-tomcat-nyarugunga-hc-558
+  openmrs-tomcat-rukoma-sake-hc-442:
+    container_name: openmrs-tomcat-rukoma-sake-hc-442
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/nyarugungahc558-data:/root/.OpenMRS/
+      - ./disc/openmrs/rukomasakehc442-data:/root/.OpenMRS/
     ports:
       - "8089:8080"
     depends_on:
-      - openmrs-mysql-nyarugunga-hc-558
+      - openmrs-mysql-rukoma-sake-hc-442
       - core
     restart: always
     logging:
       options:
         max-size: 5m
+
+
+
+
+
 
 
 # 8. OpenMRS intance of Masaka HC FOSAID 36. Date added: 21/09/2019, HTTP port : 8090
@@ -391,6 +373,36 @@ services:
       - "8082:8080"
     depends_on:
       - openmrs-mysql-bethsaida-hc-29
+      - core
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+
+# 2. OpenMRS intance of Nyarugunga HC FOSAID 558. Date added: 21/09/2019, HTTP port : 8083
+  openmrs-mysql-nyarugunga-hc-558:
+    container_name: openmrs-mysql-nyarugunga-hc-558
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/nyarugungahc558-data:/var/lib/mysql
+    ports:
+      - "3309:3306"
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+  openmrs-tomcat-nyarugunga-hc-558:
+    container_name: openmrs-tomcat-nyarugunga-hc-558
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/nyarugungahc558-data:/root/.OpenMRS/
+    ports:
+      - "8083:8080"
+    depends_on:
+      - openmrs-mysql-nyarugunga-hc-558
       - core
     restart: always
     logging:
