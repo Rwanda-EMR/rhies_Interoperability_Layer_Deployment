@@ -346,12 +346,12 @@ services:
 
 
 
-# 2. OpenMRS intance of Nyarugunga HC FOSAID 558. Date added: 21/09/2019, HTTP port : 8083
-  openmrs-mysql-nyarugunga-hc-558:
-    container_name: openmrs-mysql-nyarugunga-hc-558
+# 2. OpenMRS intance of Kabusunzu HC FOSAID 6. Date added: 23/10/2019, HTTP port : 8083
+  openmrs-mysql-kabusunzu-hc-6:
+    container_name: openmrs-mysql-kabusunzu-hc-6
     image: savicsorg/openmrs-mysql1911:v1.1
     volumes:
-      - ./disc/mysql/nyarugungahc558-data:/var/lib/mysql
+      - ./disc/mysql/kabusunzuhc6-data:/var/lib/mysql
     ports:
       - "3309:3306"
     restart: always
@@ -359,15 +359,15 @@ services:
       options:
         max-size: 5m
 
-  openmrs-tomcat-nyarugunga-hc-558:
-    container_name: openmrs-tomcat-nyarugunga-hc-558
+  openmrs-tomcat-kabusunzu-hc-6:
+    container_name: openmrs-tomcat-kabusunzu-hc-6
     image: savicsorg/openmrs-tomcat1911:v1.2
     volumes:
-      - ./disc/openmrs/nyarugungahc558-data:/root/.OpenMRS/
+      - ./disc/openmrs/kabusunzuhc6-data:/root/.OpenMRS/
     ports:
       - "8083:8080"
     depends_on:
-      - openmrs-mysql-nyarugunga-hc-558
+      - openmrs-mysql-kabusunzu-hc-6
       - core
     restart: always
     logging:

@@ -82,7 +82,7 @@ echo "OpenMRS 2, done ..."
 
 
 #3 OpenMRS
-sitename="nyarugunga-hc-558"
+sitename="kabusunzu-hc-6"
 backupPath="/opt/data/rhies/rhies_deployment/disc/openmrs/backup/${sitename}/"
 
 echo "OpenMRS 3, backup started ..."
