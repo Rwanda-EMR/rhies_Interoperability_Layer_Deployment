@@ -63,7 +63,7 @@ backupPath="/opt/data/rhies/rhies_deployment/disc/openmrs/backup/${sitename}/"
 
 echo "OpenMRS 2, backup started ..."
 host="127.0.0.1"
-port="3307"
+port="3308"
 db="openmrs"
 echo "OpenMRS 2, removing old backups files ..."
 mkdir -p  ${backupPath} 
@@ -87,7 +87,7 @@ backupPath="/opt/data/rhies/rhies_deployment/disc/openmrs/backup/${sitename}/"
 
 echo "OpenMRS 3, backup started ..."
 host="127.0.0.1"
-port="3307"
+port="3309"
 db="openmrs"
 echo "OpenMRS 3, removing old backups files ..."
 mkdir -p  ${backupPath} 
@@ -102,3 +102,28 @@ zip  mysql_${sitename}_${now}.zip  mysql_${sitename}_${now}.sql
 wait 
 rm ${fileName}
 echo "OpenMRS 3, done ..."
+
+
+
+
+#4 OpenMRS
+sitename="corunum-hc-4"
+backupPath="/opt/data/rhies/rhies_deployment/disc/openmrs/backup/${sitename}/"
+
+echo "OpenMRS 4, backup started ..."
+host="127.0.0.1"
+port="3310"
+db="openmrs"
+echo "OpenMRS 4, removing old backups files ..."
+mkdir -p  ${backupPath} 
+find ${backupPath}  -name "*.zip" -type f -mtime +10 -exec rm -f {} \;
+echo "OpenMRS 4, exporting database ..."
+fileName=${backupPath}mysql_${sitename}_${now}.sql 
+/usr/bin/mysqldump --opt -h ${host}  -P ${port} -u ${user}  -p${pwd}  ${db} > ${fileName}
+wait
+cd ${backupPath} 
+echo "OpenMRS 4, zipping export folder ..."
+zip  mysql_${sitename}_${now}.zip  mysql_${sitename}_${now}.sql
+wait 
+rm ${fileName}
+echo "OpenMRS 4, done ..."
