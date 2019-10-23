@@ -126,41 +126,6 @@ services:
 
 
 
-
-        
-
-# 3. OpenMRS intance of Kibungo HC FOSAID 435. Date added: 18/09/2019, HTTP port : 8084
-  openmrs-mysql-kibungo-hc-435:
-    container_name: openmrs-mysql-kibungo-hc-435
-    image: savicsorg/openmrs-mysql1911:v1.1
-    volumes:
-      - ./disc/mysql/kibungohc435-data:/var/lib/mysql
-    ports:
-      - "3310:3306"
-    restart: always
-    logging:
-      options:
-        max-size: 5m
-
-
-  openmrs-tomcat-kibungo-hc-435:
-    container_name: openmrs-tomcat-kibungo-hc-435
-    image: savicsorg/openmrs-tomcat1911:v1.2
-    volumes:
-      - ./disc/openmrs/kibungohc435-data:/root/.OpenMRS/
-    ports:
-      - "8084:8080"
-    depends_on:
-      - openmrs-mysql-kibungo-hc-435
-      - core
-    restart: always
-    logging:
-      options:
-        max-size: 5m
-
-
-
-
 # 4. OpenMRS intance of Jarama HC FOSAID 434. Date added: 18/09/2019, HTTP port : 8085
   openmrs-mysql-jarama-hc-434:
     container_name: openmrs-mysql-jarama-hc-434
@@ -408,3 +373,35 @@ services:
     logging:
       options:
         max-size: 5m
+
+
+
+# 3. OpenMRS intance of Cor-unum HC FOSAID 4. Date added: 23/10/2019, HTTP port : 8084
+  openmrs-mysql-cor-unum-hc-4:
+    container_name: openmrs-mysql-cor-unum-hc-4
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/corunumhc4-data:/var/lib/mysql
+    ports:
+      - "3310:3306"
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+  openmrs-tomcat-cor-unum-hc-4:
+    container_name: openmrs-tomcat-cor-unum-hc-4
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/corunumhc4-data:/root/.OpenMRS/
+    ports:
+      - "8084:8080"
+    depends_on:
+      - openmrs-mysql-cor-unum-hc-4
+      - core
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
