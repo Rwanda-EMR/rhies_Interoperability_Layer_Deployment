@@ -405,3 +405,33 @@ services:
       options:
         max-size: 5m
 
+
+
+# 4. OpenMRS intance of Rugarama HC FOSAID 11. Date added: 05/11/2019, HTTP port : 8085
+  openmrs-mysql-rugarama-hc-11:
+    container_name: openmrs-mysql-rugarama-hc-11
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/rugaramahc11-data:/var/lib/mysql
+    ports:
+      - "3311:3306"
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+  openmrs-tomcat-rugarama-hc-11:
+    container_name: openmrs-tomcat-rugarama-hc-11
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/rugaramahc11-data:/root/.OpenMRS/
+    ports:
+      - "8085:8080"
+    depends_on:
+      - openmrs-mysql-rugarama-hc-11
+      - core
+    restart: always
+    logging:
+      options:
+        max-size: 5m

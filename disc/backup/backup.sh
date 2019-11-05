@@ -127,3 +127,27 @@ zip  mysql_${sitename}_${now}.zip  mysql_${sitename}_${now}.sql
 wait 
 rm ${fileName}
 echo "OpenMRS 4, done ..."
+
+
+
+#5 OpenMRS
+sitename="rugarama-hc-11"
+backupPath="/opt/data/rhies/rhies_deployment/disc/openmrs/backup/${sitename}/"
+
+echo "OpenMRS 5, backup started ..."
+host="127.0.0.1"
+port="3311"
+db="openmrs"
+echo "OpenMRS 5, removing old backups files ..."
+mkdir -p  ${backupPath} 
+find ${backupPath}  -name "*.zip" -type f -mtime +10 -exec rm -f {} \;
+echo "OpenMRS 5, exporting database ..."
+fileName=${backupPath}mysql_${sitename}_${now}.sql 
+/usr/bin/mysqldump --opt -h ${host}  -P ${port} -u ${user}  -p${pwd}  ${db} > ${fileName}
+wait
+cd ${backupPath} 
+echo "OpenMRS 5, zipping export folder ..."
+zip  mysql_${sitename}_${now}.zip  mysql_${sitename}_${now}.sql
+wait 
+rm ${fileName}
+echo "OpenMRS 5, done ..."
