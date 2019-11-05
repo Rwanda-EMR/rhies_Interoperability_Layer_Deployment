@@ -407,6 +407,7 @@ services:
 
 
 
+
 # 4. OpenMRS intance of Rugarama HC FOSAID 11. Date added: 05/11/2019, HTTP port : 8085
   openmrs-mysql-rugarama-hc-11:
     container_name: openmrs-mysql-rugarama-hc-11
@@ -430,6 +431,38 @@ services:
       - "8085:8080"
     depends_on:
       - openmrs-mysql-rugarama-hc-11
+      - core
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+
+
+# 5. OpenMRS intance of Muhima HC FOSAID 7. Date added: 05/11/2019, HTTP port : 8086
+  openmrs-mysql-muhima-hc-7:
+    container_name: openmrs-mysql-muhima-hc-7
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/muhimahc7-data:/var/lib/mysql
+    ports:
+      - "3312:3306"
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+  openmrs-tomcat-muhima-hc-7:
+    container_name: openmrs-tomcat-muhima-hc-7
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/muhimahc7-data:/root/.OpenMRS/
+    ports:
+      - "8086:8080"
+    depends_on:
+      - openmrs-mysql-muhima-hc-7
       - core
     restart: always
     logging:
