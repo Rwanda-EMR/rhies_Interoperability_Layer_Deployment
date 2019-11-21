@@ -468,3 +468,62 @@ services:
     logging:
       options:
         max-size: 5m
+
+
+# 9. OpenMRS intance of We-Act FOSAID 1237. Date added: 18/11/2019, HTTP port : 8087
+  openmrs-mysql-we-act-1237:
+    container_name: openmrs-mysql-we-act-1237
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/weact1237-data:/var/lib/mysql
+    ports:
+      - "3317:3306"
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+  openmrs-tomcat-we-act-1237:
+    container_name: openmrs-tomcat-we-act-1237
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/weact1237-data:/root/.OpenMRS/
+    ports:
+      - "8087:8080"
+    depends_on:
+      - openmrs-mysql-we-act-1237
+      - core
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+# 10. OpenMRS intance of Clinique Carrefour FOSAID 657. Date added: 20/11/2019, HTTP port : 8088
+  openmrs-mysql-clinique-carrefour-657:
+    container_name: openmrs-mysql-clinique-carrefour-657
+    image: savicsorg/openmrs-mysql1911:v1.1
+    volumes:
+      - ./disc/mysql/cliniquecarrefour657-data:/var/lib/mysql
+    ports:
+      - "3318:3306"
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+
+
+  openmrs-tomcat-clinique-carrefour-657:
+    container_name: openmrs-tomcat-clinique-carrefour-657
+    image: savicsorg/openmrs-tomcat1911:v1.2
+    volumes:
+      - ./disc/openmrs/cliniquecarrefour657-data:/root/.OpenMRS/
+    ports:
+      - "8088:8080"
+    depends_on:
+      - openmrs-mysql-clinique-carrefour-657
+      - core
+    restart: always
+    logging:
+      options:
+        max-size: 5m
