@@ -343,7 +343,7 @@ services:
 
   openmrs-tomcat-bethsaida-hc-29:
     container_name: openmrs-tomcat-bethsaida-hc-29
-    image: openmrs-tomcat-bethsaida-fixed
+    image: openmrs-tomcat-bethsaida-fix
     volumes:
       - ./disc/openmrs/bethsaidahc29-data:/root/.OpenMRS/
     ports:
