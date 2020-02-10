@@ -7,9 +7,9 @@
 
 3. got to each **deployment/x_config/** folder
 
-4. Edit **the config files** to meet your needs
+4. Edit **the config files** to fit your needs 
 
-5. Restart every thing 
+5. Start every thing by using **docker-compose --compatibility up**
 
 6. finish the configuration process on **openHim**
 

@@ -121,7 +121,7 @@ services:
 
   openmrs-tomcat:
     container_name: openmrs-tomcat
-    image: savicsorg/openmrs-tomcat1911:v1.2
+    image: savicsorg/openmrs-tomcat1911:v1.3
     volumes:
       - ./disc/openmrs/sitename:/root/.OpenMRS/
     ports:
@@ -133,7 +133,12 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 4096M
+        reservations:
+          memory: 2048M
     
 
 
