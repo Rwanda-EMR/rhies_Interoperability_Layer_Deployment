@@ -1,3 +1,5 @@
+cd /opt/data/rhies/rhies_deployment/
+
 docker-compose restart  openmrs-tomcat
 docker-compose restart  openmrs-tomcat-bethsaida-hc-29
 docker-compose restart  openmrs-tomcat-kabusunzu-hc-6
