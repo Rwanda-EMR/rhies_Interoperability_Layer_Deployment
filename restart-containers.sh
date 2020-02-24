@@ -1,3 +1,5 @@
+cd /opt/data/rhies/rhies_deployment/
+
 docker-compose restart  openmrs-tomcat
 sleep 15m
 docker-compose restart  openmrs-tomcat-bethsaida-hc-29
