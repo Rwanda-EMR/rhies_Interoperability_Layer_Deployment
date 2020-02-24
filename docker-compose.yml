@@ -10,7 +10,13 @@ services:
     logging:
       options:
         max-size: 5m
-        
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+      
 
   core:
     container_name: openhim-core
@@ -32,7 +38,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
   console:
     container_name: openhim-console
     image: jembi/openhim-console
@@ -44,19 +56,13 @@ services:
     logging:
       options:
         max-size: 5m
-
-
-  cadvisor:
-    image: google/cadvisor:latest
-    container_name: cadvisor
-    ports:
-    - 8089:8080
-    restart: always
-    volumes:
-    - /:/rootfs:ro
-    - /var/run:/var/run:rw
-    - /sys:/sys:ro
-    - /var/lib/docker/:/var/lib/docker:ro
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   labToOmrsMediator:
     container_name: savics-labtoomrs
@@ -72,6 +78,13 @@ services:
     logging:
       options:
         max-size: 5m
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
+  
 
 
   omrsToNidaMediator:
@@ -89,7 +102,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
+    
 
   omrsToDHIS2Mediator:
     container_name: savics-omrstodhis2
@@ -104,6 +123,15 @@ services:
     logging:
       options:
         max-size: 5m
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
+    
+    
+
 
   openmrs-mysql:
     container_name: openmrs-mysql
@@ -116,7 +144,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
   openmrs-tomcat:
@@ -136,9 +170,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 4096M
-        reservations:
           memory: 2048M
+        reservations:
+          memory: 1024M
     
 
 
@@ -155,6 +189,14 @@ services:
     logging:
       options:
         max-size: 5m
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
+
 
 
   openmrs-tomcat-jarama-hc-434:
@@ -171,7 +213,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 
@@ -187,7 +235,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
   openmrs-tomcat-rukumbeli-hc-443:
@@ -204,7 +258,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 
@@ -220,8 +280,13 @@ services:
     logging:
       options:
         max-size: 5m
-
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   openmrs-tomcat-nzangwa-hc-455:
     container_name: openmrs-tomcat-nzangwa-hc-455
@@ -237,7 +302,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 # 7. OpenMRS intance of Rukoma Sake HC FOSAID 442. Date added: 18/09/2019, HTTP port : 8089
@@ -252,6 +323,13 @@ services:
     logging:
       options:
         max-size: 5m
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
   openmrs-tomcat-rukoma-sake-hc-442:
@@ -268,7 +346,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 
@@ -287,7 +371,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
   openmrs-tomcat-masaka-hc-36:
@@ -304,7 +394,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 # 9. OpenMRS intance of Remera HC. FOSAID 440. Date added: 21/09/2019, HTTP port : 8091
 #  openmrs-mysql-remera-hc-440:
@@ -344,11 +440,17 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   openmrs-tomcat-bethsaida-hc-29:
     container_name: openmrs-tomcat-bethsaida-hc-29
-    image: savicsorg/openmrs-tomcat1911:v1.2
+    image: savicsorg/openmrs-tomcat1911:v1.3
     volumes:
       - ./disc/openmrs/bethsaidahc29-data:/root/.OpenMRS/
     ports:
@@ -360,7 +462,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 # 2. OpenMRS intance of Kabusunzu HC FOSAID 6. Date added: 23/10/2019, HTTP port : 8083
@@ -375,7 +483,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
   openmrs-tomcat-kabusunzu-hc-6:
     container_name: openmrs-tomcat-kabusunzu-hc-6
     image: savicsorg/openmrs-tomcat1911:v1.2
@@ -390,7 +504,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 # 3. OpenMRS intance of Cor-unum HC FOSAID 4. Date added: 23/10/2019, HTTP port : 8084
@@ -405,7 +525,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   openmrs-tomcat-cor-unum-hc-4:
     container_name: openmrs-tomcat-cor-unum-hc-4
@@ -421,7 +547,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 
@@ -437,8 +569,13 @@ services:
     logging:
       options:
         max-size: 5m
-
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
   openmrs-tomcat-rugarama-hc-11:
     container_name: openmrs-tomcat-rugarama-hc-11
     image: savicsorg/openmrs-tomcat1911:v1.2
@@ -453,7 +590,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 
 
@@ -469,7 +612,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   openmrs-tomcat-muhima-hc-7:
     container_name: openmrs-tomcat-muhima-hc-7
@@ -485,7 +634,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
 # 9. OpenMRS intance of We-Act FOSAID 1237. Date added: 18/11/2019, HTTP port : 8087
   openmrs-mysql-we-act-1237:
@@ -499,7 +654,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   openmrs-tomcat-we-act-1237:
     container_name: openmrs-tomcat-we-act-1237
@@ -515,7 +676,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 # 10. OpenMRS intance of Clinique Carrefour FOSAID 657. Date added: 20/11/2019, HTTP port : 8088
   openmrs-mysql-clinique-carrefour-657:
     container_name: openmrs-mysql-clinique-carrefour-657
@@ -528,7 +695,13 @@ services:
     logging:
       options:
         max-size: 5m
-
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
 
   openmrs-tomcat-clinique-carrefour-657:
     container_name: openmrs-tomcat-clinique-carrefour-657
@@ -544,3 +717,10 @@ services:
     logging:
       options:
         max-size: 5m
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    
