@@ -18,6 +18,5 @@
 8. go rest ;)
 
 
-
-
-
+### Main Contributors ###
+* Developers: Anatole ABE, Mamadou Ben TRAORE
