@@ -2,3 +2,4 @@ clean/*
 docker/*
 logs.sh
 setenv.sh
+disc/
