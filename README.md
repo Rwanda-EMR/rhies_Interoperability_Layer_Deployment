@@ -23,7 +23,10 @@ The purpose of Rwandan Health Information Exchange System (RHIES) project is to 
 
 8. go rest ;)
 
-## Licence ###
+## Documentation
+[Wiki](https://github.com/savicsorg/rhies_Deployment/wiki)
+
+## Licence
 Proprietary.
 
 ## Created and Developed By
