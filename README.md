@@ -33,4 +33,4 @@ Proprietary.
 [Rwanda Biomedical Centre (RBC)](https://www.rbc.gov.rw/)
 
 ## Main Contributors
-* Developers: Anatole ABE, Mamadou Ben TRAORE
+* Developers: Gilbert AGBODAMAKOU, Anatole ABE, Mamadou Ben TRAORE
