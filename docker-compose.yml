@@ -64,8 +64,8 @@ services:
           memory: 1024M
     
 
-  labToOmrsMediator:
-    container_name: savics-labtoomrs
+  rhies-labware-mediator:
+    container_name: rhies-labware-mediator
     image: savicsorg/labtoomrs:latest
     ports:
       - "4000:4000"
@@ -87,8 +87,8 @@ services:
   
 
 
-  omrsToNidaMediator:
-    container_name: savics-omrstonida
+  rhies-nida-mediator:
+    container_name: rhies-nida-mediator
     image: savicsorg/omrstonida:latest
     ports:
       - "4001:4001"
@@ -110,8 +110,10 @@ services:
           memory: 512M
     
 
-  omrsToDHIS2Mediator:
-    container_name: savics-omrstodhis2
+    
+
+   rhies-dhis2-mediator:
+    container_name: rhies-dhis2-mediator
     image: savicsorg/omrstodhis2:latest
     ports:
       - "4002:4002"
@@ -130,7 +132,30 @@ services:
         reservations:
           memory: 512M
     
-    
+
+
+    rhies-client-registry-mediator:
+    container_name: rhies-client-registry-mediator
+    image: savicsorg/rhies-client-registry:latest
+    ports:
+      - "4004:4004"
+    depends_on:
+      - core
+    volumes:
+      - ./disc/omrsToCRMediator/config/:/usr/src/app/savics/omrsToCRMediator/config/
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
+
+
+
 
 
   openmrs-mysql:
@@ -196,8 +221,6 @@ services:
         reservations:
           memory: 1024M
     
-
-
 
   openmrs-tomcat-jarama-hc-434:
     container_name: openmrs-tomcat-jarama-hc-434
