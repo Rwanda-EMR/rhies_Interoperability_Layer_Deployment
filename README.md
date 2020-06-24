@@ -1,4 +1,4 @@
-# rhies_Deployment
+# rhies_Interoperability_Layer_Deployment
 This repository contains the tool to deploy the Interoperability Layer for the RHIES project.
 
 ## RHIES Project
